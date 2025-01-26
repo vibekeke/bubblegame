@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnrqqwwsma0a7"]
+
+[ext_resource type="Script" path="res://Effects/sparkle.gd" id="1_wqtcj"]
+[ext_resource type="Texture2D" uid="uid://bv7x0n006k8nc" path="res://Effects/sparkle_sprites/SparkleY-2.png" id="2_eu6rn"]
+[ext_resource type="Texture2D" uid="uid://c1c4ev8avn57e" path="res://Effects/sparkle_sprites/SparkleY-4.png" id="3_ea0al"]
+[ext_resource type="Texture2D" uid="uid://b5u7u1ldr4rjv" path="res://Effects/sparkle_sprites/SparkleY-5.png" id="4_cscqr"]
+[ext_resource type="Texture2D" uid="uid://dgvd66i65t32q" path="res://Effects/sparkle_sprites/SparkleY-1.png" id="5_xwo6n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qeu4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_eu6rn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ea0al")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cscqr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xwo6n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Sparkle" type="Node2D"]
+script = ExtResource("1_wqtcj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qeu4m")
+frame_progress = 0.0800014
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

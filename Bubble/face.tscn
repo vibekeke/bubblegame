@@ -1,0 +1,373 @@
+[gd_scene load_steps=27 format=3 uid="uid://hu447tf01o0t"]
+
+[ext_resource type="Texture2D" uid="uid://cikvqimna2dd6" path="res://Bubble/Face/EyesAgitated.png" id="1_c40ke"]
+[ext_resource type="Texture2D" uid="uid://46f70c1abyvf" path="res://Bubble/Face/EyesNormal.png" id="1_y6nm6"]
+[ext_resource type="Texture2D" uid="uid://dw2loy7ohe4l1" path="res://Bubble/Face/EyesBlink.png" id="2_cjqra"]
+[ext_resource type="Texture2D" uid="uid://bfo8ssfwa0woi" path="res://Bubble/Face/EyesExctaticClosed.png" id="2_s4ner"]
+[ext_resource type="Texture2D" uid="uid://784r7ixynjrf" path="res://Bubble/Face/MouthNeutral.png" id="3_4st6y"]
+[ext_resource type="Texture2D" uid="uid://dpa80q1oasmoo" path="res://Bubble/Face/EyesStressed.png" id="3_luww4"]
+[ext_resource type="Texture2D" uid="uid://06bdoulsclho" path="res://Bubble/Face/EyesAgitatedWinkL.png" id="3_uf18d"]
+[ext_resource type="Texture2D" uid="uid://r2bsm1tnsbqy" path="res://Bubble/Face/MouthOpen.png" id="4_goidp"]
+[ext_resource type="Texture2D" uid="uid://cb1hb522wnb11" path="res://Bubble/Face/EyesExctatic2.png" id="4_m5iv1"]
+[ext_resource type="Texture2D" uid="uid://ca54ggg241ngy" path="res://Bubble/Face/EyesStressedClosed.png" id="4_sccti"]
+[ext_resource type="Texture2D" uid="uid://43bdb6kkepyq" path="res://Bubble/Face/EyesStressedWinkR.png" id="5_xuhqo"]
+[ext_resource type="Texture2D" uid="uid://dtdpqj5jv4v5n" path="res://Bubble/Face/EyesHappy.png" id="5_ygxrv"]
+[ext_resource type="Texture2D" uid="uid://bvd7msxehc4e8" path="res://Bubble/Face/EyesHappyClosed.png" id="6_g4osm"]
+[ext_resource type="Texture2D" uid="uid://d3c1ycm2ehwjf" path="res://Bubble/Face/EyesStressedWinkL.png" id="6_mhvf1"]
+[ext_resource type="Texture2D" uid="uid://b61jrkd76fns7" path="res://Bubble/Face/EyesLonely.png" id="7_ufl0t"]
+[ext_resource type="Texture2D" uid="uid://c6oljfbwl7ff" path="res://Bubble/Face/EyesLonelyClosed.png" id="8_wqhws"]
+[ext_resource type="Texture2D" uid="uid://g3y1q4aa4ji" path="res://Bubble/Face/EyesSad.png" id="11_5yx4c"]
+[ext_resource type="Texture2D" uid="uid://cjc8ohsxwe82b" path="res://Bubble/Face/EyesSadClosed.png" id="12_jpp1h"]
+[ext_resource type="Texture2D" uid="uid://kajx4vsrqd5i" path="res://Bubble/Face/MouthLonely.png" id="12_wd5pc"]
+[ext_resource type="Texture2D" uid="uid://cp8bj6x15a6e3" path="res://Bubble/Face/EyesSad2.png" id="13_bgi4n"]
+[ext_resource type="Texture2D" uid="uid://bs5yvhv7dqtvi" path="res://Bubble/Face/MouthSad.png" id="13_cyiht"]
+[ext_resource type="Texture2D" uid="uid://b4fvmq4p7a2h1" path="res://Bubble/Face/MouthExctatic.png" id="19_1mu6n"]
+[ext_resource type="Texture2D" uid="uid://ctx4i731qpus1" path="res://Bubble/Face/MouthAgitated2.png" id="20_4thbv"]
+[ext_resource type="Texture2D" uid="uid://bqfrqts37xvgx" path="res://Bubble/Face/MouthHappyOpen.png" id="20_jg8ok"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2v005"]
+animations = [{
+"frames": [{
+"duration": 6.0,
+"texture": ExtResource("1_c40ke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_s4ner")
+}, {
+"duration": 8.0,
+"texture": ExtResource("1_c40ke")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_uf18d")
+}, {
+"duration": 5.0,
+"texture": ExtResource("1_c40ke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_s4ner")
+}, {
+"duration": 2.0,
+"texture": ExtResource("1_c40ke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_s4ner")
+}],
+"loop": true,
+"name": &"agitated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 6.0,
+"texture": ExtResource("2_s4ner")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uf18d")
+}],
+"loop": true,
+"name": &"agitated_pet",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 6.0,
+"texture": ExtResource("4_m5iv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_s4ner")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_m5iv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_s4ner")
+}],
+"loop": true,
+"name": &"exctatic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_s4ner")
+}],
+"loop": true,
+"name": &"exctatic_pet",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 7.0,
+"texture": ExtResource("5_ygxrv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g4osm")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_g4osm")
+}],
+"loop": true,
+"name": &"happy_pet",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 7.0,
+"texture": ExtResource("7_ufl0t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jpp1h")
+}],
+"loop": true,
+"name": &"lonely",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_wqhws")
+}],
+"loop": true,
+"name": &"lonely_pet",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 7.0,
+"texture": ExtResource("1_y6nm6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cjqra")
+}, {
+"duration": 10.0,
+"texture": ExtResource("1_y6nm6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cjqra")
+}, {
+"duration": 2.0,
+"texture": ExtResource("1_y6nm6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cjqra")
+}],
+"loop": true,
+"name": &"neutral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_jpp1h")
+}],
+"loop": true,
+"name": &"neutral_pet",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 8.0,
+"texture": ExtResource("11_5yx4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jpp1h")
+}, {
+"duration": 5.0,
+"texture": ExtResource("13_bgi4n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jpp1h")
+}, {
+"duration": 3.0,
+"texture": ExtResource("13_bgi4n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jpp1h")
+}],
+"loop": true,
+"name": &"sad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_jpp1h")
+}],
+"loop": true,
+"name": &"sad_pet",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("3_luww4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_sccti")
+}, {
+"duration": 5.0,
+"texture": ExtResource("3_luww4")
+}, {
+"duration": 7.0,
+"texture": ExtResource("3_luww4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xuhqo")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_luww4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_sccti")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_luww4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mhvf1")
+}],
+"loop": true,
+"name": &"stressed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 4.0,
+"texture": ExtResource("4_sccti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mhvf1")
+}, {
+"duration": 3.0,
+"texture": ExtResource("4_sccti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_luww4")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_sccti")
+}],
+"loop": true,
+"name": &"stressed_pet",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lu44c"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("20_4thbv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_goidp")
+}, {
+"duration": 5.0,
+"texture": ExtResource("3_4st6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_goidp")
+}],
+"loop": true,
+"name": &"agitated",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("19_1mu6n")
+}, {
+"duration": 3.0,
+"texture": ExtResource("3_4st6y")
+}, {
+"duration": 2.0,
+"texture": ExtResource("20_jg8ok")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4st6y")
+}],
+"loop": true,
+"name": &"exctatic",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 8.0,
+"texture": ExtResource("3_4st6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_jg8ok")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("12_wd5pc")
+}, {
+"duration": 2.0,
+"texture": ExtResource("13_cyiht")
+}],
+"loop": true,
+"name": &"lonely",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("3_4st6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_goidp")
+}],
+"loop": true,
+"name": &"neutral",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 7.0,
+"texture": ExtResource("3_4st6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_jg8ok")
+}],
+"loop": true,
+"name": &"petted",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("13_cyiht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_goidp")
+}],
+"loop": true,
+"name": &"sad",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("20_4thbv")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_goidp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_cyiht")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_4st6y")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_goidp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wd5pc")
+}],
+"loop": true,
+"name": &"stressed",
+"speed": 2.0
+}]
+
+[node name="Face" type="Node2D"]
+
+[node name="Eyes" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2v005")
+animation = &"happy"
+frame_progress = 0.448068
+
+[node name="Mouth" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lu44c")
+animation = &"agitated"
+frame_progress = 0.45731

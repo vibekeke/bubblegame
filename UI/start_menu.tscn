@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://16i8nmbhfc17"]
+
+[ext_resource type="FontFile" uid="uid://gib0aims4g01" path="res://UI/Montserrat-ExtraLight.ttf" id="1_c2pqi"]
+[ext_resource type="FontFile" uid="uid://chf1tjsfaljv1" path="res://UI/Montserrat-Light.ttf" id="2_qkf46"]
+[ext_resource type="StyleBox" uid="uid://ba4mr84gjn7wp" path="res://UI/button_style_box.tres" id="3_hfk1r"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -294.0
+offset_top = 212.345
+offset_right = 294.0
+offset_bottom = 442.345
+grow_horizontal = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_c2pqi")
+theme_override_font_sizes/font_size = 80
+text = "pet the bubble"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 13
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.277528, 0.277528, 0.277528, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_qkf46")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("3_hfk1r")
+text = "NEW GAME"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(260, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.277528, 0.277528, 0.277528, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_qkf46")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("3_hfk1r")
+text = "QUIT"

@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://cd6tdqj32pyyb"]
+
+[ext_resource type="Script" path="res://Effects/sparkle.gd" id="1_ovd85"]
+[ext_resource type="Texture2D" uid="uid://d2nc7yv75q7jq" path="res://Effects/sparkle_sprites/SparkleB-2.png" id="2_eqwy2"]
+[ext_resource type="Texture2D" uid="uid://dcbrmq03k1ft2" path="res://Effects/sparkle_sprites/SparkleB-3.png" id="3_g6nb7"]
+[ext_resource type="Texture2D" uid="uid://d14d1fpj7r500" path="res://Effects/sparkle_sprites/SparkleB-4.png" id="4_ok2np"]
+[ext_resource type="Texture2D" uid="uid://3i1heln6j10v" path="res://Effects/sparkle_sprites/SparkleB-5.png" id="5_wctlh"]
+[ext_resource type="Texture2D" uid="uid://54gg6xj48hlp" path="res://Effects/sparkle_sprites/SparkleB-1.png" id="6_2hh7h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qeu4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_eqwy2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g6nb7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ok2np")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wctlh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2hh7h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Sparkle" type="Node2D"]
+script = ExtResource("1_ovd85")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qeu4m")
+frame = 2
+frame_progress = 0.191463
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

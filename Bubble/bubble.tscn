@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctutaxmxvov0b"]
+
+[ext_resource type="Script" path="res://Bubble/bubble.gd" id="1_k5fo5"]
+[ext_resource type="Texture2D" uid="uid://d0owvxosl55y0" path="res://Bubble/BobleSprite2.png" id="2_kgiaa"]
+[ext_resource type="PackedScene" uid="uid://hu447tf01o0t" path="res://Bubble/face.tscn" id="3_r8oum"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m15e2"]
+radius = 134.0
+
+[node name="Bubble" type="CharacterBody2D"]
+input_pickable = true
+script = ExtResource("1_k5fo5")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-3, 16)
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("2_kgiaa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+shape = SubResource("CircleShape2D_m15e2")
+
+[node name="PettingPauseTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="Face" parent="." instance=ExtResource("3_r8oum")]
+position = Vector2(-1, 0.999999)
+scale = Vector2(0.4, 0.4)
+
+[node name="StressTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="LonelinessTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="AnimationTimer" type="Timer" parent="."]
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="timeout" from="PettingPauseTimer" to="." method="_on_petting_pause_timer_timeout"]
+[connection signal="timeout" from="StressTimer" to="." method="_on_stress_timer_timeout"]
+[connection signal="timeout" from="LonelinessTimer" to="." method="_on_loneliness_timer_timeout"]
