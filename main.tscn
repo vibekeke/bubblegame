@@ -1,16 +1,83 @@
-[gd_scene load_steps=9 format=3 uid="uid://c00g2f6cs2qmv"]
+[gd_scene load_steps=19 format=3 uid="uid://c00g2f6cs2qmv"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_xa3r1"]
+[ext_resource type="Texture2D" uid="uid://bxag63ga1qn7d" path="res://Effects/victory_crown/Crown.png" id="2_koecg"]
 [ext_resource type="FontFile" uid="uid://gib0aims4g01" path="res://UI/Montserrat-ExtraLight.ttf" id="3_767k1"]
 [ext_resource type="FontFile" uid="uid://chf1tjsfaljv1" path="res://UI/Montserrat-Light.ttf" id="4_wha4k"]
 [ext_resource type="StyleBox" uid="uid://ba4mr84gjn7wp" path="res://UI/button_style_box.tres" id="5_rcemy"]
 [ext_resource type="FontFile" uid="uid://d4likbmimanq1" path="res://UI/Montserrat-Regular.ttf" id="5_relgm"]
 [ext_resource type="AudioStream" uid="uid://ddm80akvts4ap" path="res://Music/Boble2_Master.mp3" id="6_negab"]
 [ext_resource type="AudioStream" uid="uid://d1ic2ac44e4xw" path="res://Music/gameover_boble2.mp3" id="7_dycg2"]
+[ext_resource type="Texture2D" uid="uid://bp8r8my7hov0a" path="res://Effects/victory_crown/CrownSparkle-1 2.png" id="7_f7x6y"]
 [ext_resource type="AudioStream" uid="uid://dskuh47eouda0" path="res://Music/vinnermusikk.mp3" id="8_dhvuo"]
+[ext_resource type="Texture2D" uid="uid://ct3gtesfsme04" path="res://Effects/victory_crown/CrownSparkle-2.png" id="8_nmae0"]
+[ext_resource type="Texture2D" uid="uid://cxj0ebrphq4ww" path="res://Effects/victory_crown/CrownSparkle-3 2.png" id="9_ox2je"]
+[ext_resource type="Texture2D" uid="uid://cdf7x6683r2vu" path="res://Effects/victory_crown/CrownSparkle-4 2.png" id="10_kpba0"]
+[ext_resource type="Texture2D" uid="uid://0j8i3bs66tlw" path="res://Effects/victory_crown/CrownSparkle-5 2.png" id="11_6ryr8"]
+[ext_resource type="Texture2D" uid="uid://2l55hqpmx61a" path="res://Effects/victory_crown/CrownSparkle-6 2.png" id="12_mx741"]
+[ext_resource type="Texture2D" uid="uid://41pr7m5q5gm8" path="res://Effects/victory_crown/CrownSparkle-7 2.png" id="13_3x0cu"]
+[ext_resource type="Texture2D" uid="uid://bh1po7shehum5" path="res://Effects/victory_crown/CrownSparkle-8 2.png" id="14_0lnsm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wg884"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_f7x6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_nmae0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ox2je")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_kpba0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_6ryr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_mx741")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_3x0cu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_0lnsm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_xa3r1")
+
+[node name="TutorialMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="FirsttimeLabel" type="Label" parent="TutorialMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -377.5
+offset_right = 377.5
+offset_bottom = 36.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_relgm")
+theme_override_font_sizes/font_size = 28
+text = "Click, hold and wiggle your mouse to pet the bubbles!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="StartMenu" type="Control" parent="."]
 layout_mode = 3
@@ -21,6 +88,12 @@ grow_horizontal = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
+[node name="VictoryCrown" type="Sprite2D" parent="StartMenu"]
+visible = false
+position = Vector2(-4, 174)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_koecg")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="StartMenu"]
 layout_mode = 1
 anchors_preset = 5
@@ -29,7 +102,7 @@ anchor_right = 0.5
 offset_left = -294.0
 offset_top = 212.345
 offset_right = 294.0
-offset_bottom = 442.345
+offset_bottom = 613.345
 grow_horizontal = 2
 
 [node name="Title" type="Label" parent="StartMenu/VBoxContainer"]
@@ -41,7 +114,7 @@ text = "pet the bubble"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="note" type="Label" parent="StartMenu/VBoxContainer"]
+[node name="Subtitle" type="Label" parent="StartMenu/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_relgm")
@@ -102,6 +175,12 @@ visible = false
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 4
+
+[node name="SparkleCrown" type="AnimatedSprite2D" parent="ResultsMenu"]
+position = Vector2(-3, 71)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_wg884")
+frame_progress = 0.83274
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ResultsMenu"]
 layout_mode = 1
@@ -211,10 +290,18 @@ stream = ExtResource("7_dycg2")
 stream = ExtResource("8_dhvuo")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = 0
 
 [node name="EffectsLayer" type="CanvasLayer" parent="."]
+
+[node name="GenericTimer" type="Timer" parent="."]
+
+[node name="BubbleSpawner" type="Timer" parent="."]
+wait_time = 3.0
 
 [connection signal="pressed" from="StartMenu/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="StartMenu/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="ResultsMenu/VBoxContainer/TryAgainButton" to="." method="_on_try_again_button_pressed"]
 [connection signal="pressed" from="ResultsMenu/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="timeout" from="GenericTimer" to="." method="_on_generic_timer_timeout"]
+[connection signal="timeout" from="BubbleSpawner" to="." method="_on_bubble_spawner_timeout"]

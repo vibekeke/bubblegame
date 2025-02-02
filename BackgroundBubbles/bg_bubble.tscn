@@ -1,0 +1,98 @@
+[gd_scene load_steps=15 format=3 uid="uid://mj4utq4hulva"]
+
+[ext_resource type="Script" path="res://BackgroundBubbles/bg_bubble.gd" id="1_ghaps"]
+[ext_resource type="Texture2D" uid="uid://d0owvxosl55y0" path="res://Bubble/BobleSprite2.png" id="2_f3ck2"]
+[ext_resource type="StyleBox" uid="uid://ch8ink1m5hmpf" path="res://UI/invisibutton.tres" id="3_jj02h"]
+[ext_resource type="Texture2D" uid="uid://b82euunuh3a2l" path="res://Bubble/BubbleAnim/boblepop-1.png" id="3_uo0gg"]
+[ext_resource type="Texture2D" uid="uid://crm8uwpurlhx4" path="res://Bubble/BubbleAnim/boblepop-2.png" id="4_r8fab"]
+[ext_resource type="Texture2D" uid="uid://4k5j50ijwag6" path="res://Bubble/BubbleAnim/boblepop-3.png" id="5_bo71d"]
+[ext_resource type="Texture2D" uid="uid://baf4fx1ayrcjj" path="res://Bubble/BubbleAnim/boblepop-4.png" id="6_fov1t"]
+[ext_resource type="Texture2D" uid="uid://bfftdv1njyd23" path="res://Bubble/BubbleAnim/boblepop-5.png" id="7_t26pe"]
+[ext_resource type="Texture2D" uid="uid://deuhsw1we8knw" path="res://Bubble/BubbleAnim/boblepop-6.png" id="8_hwv0l"]
+[ext_resource type="Texture2D" uid="uid://u82vhpxmfokq" path="res://Bubble/BubbleAnim/boblepop-7.png" id="9_ooa4s"]
+[ext_resource type="Texture2D" uid="uid://b7wba6d2bnn8e" path="res://Bubble/BubbleAnim/boblepop-8.png" id="10_0ouig"]
+[ext_resource type="Texture2D" uid="uid://54gg6xj48hlp" path="res://Effects/sparkle_sprites/SparkleB-1.png" id="11_u17rk"]
+[ext_resource type="AudioStream" uid="uid://b28s72s8f74n6" path="res://Music/pop_sound.mp3" id="13_0c243"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gwxln"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f3ck2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_uo0gg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_r8fab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bo71d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fov1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_t26pe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hwv0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ooa4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0ouig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_u17rk")
+}],
+"loop": false,
+"name": &"pop",
+"speed": 24.0
+}]
+
+[node name="BgBubble" type="CharacterBody2D"]
+script = ExtResource("1_ghaps")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-10, 0)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_gwxln")
+animation = &"pop"
+
+[node name="Button" type="Button" parent="."]
+offset_left = -94.0
+offset_top = -88.0
+offset_right = 82.0
+offset_bottom = 89.0
+theme_override_styles/focus = ExtResource("3_jj02h")
+theme_override_styles/disabled_mirrored = ExtResource("3_jj02h")
+theme_override_styles/disabled = ExtResource("3_jj02h")
+theme_override_styles/hover_pressed_mirrored = ExtResource("3_jj02h")
+theme_override_styles/hover_pressed = ExtResource("3_jj02h")
+theme_override_styles/hover_mirrored = ExtResource("3_jj02h")
+theme_override_styles/hover = ExtResource("3_jj02h")
+theme_override_styles/pressed_mirrored = ExtResource("3_jj02h")
+theme_override_styles/pressed = ExtResource("3_jj02h")
+theme_override_styles/normal_mirrored = ExtResource("3_jj02h")
+theme_override_styles/normal = ExtResource("3_jj02h")
+
+[node name="PettingTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="PopSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_0c243")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="PettingTimer" to="." method="_on_petting_timer_timeout"]

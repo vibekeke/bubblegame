@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 @export var pause_wait_time : float = 0.5
 
@@ -40,8 +40,8 @@ var animation_waittime = 2
 
 var current_mood = "neutral"
 var initial_position = Vector2()
-var bobbing_amplitude = 10
-var bobbing_speed = 1.5
+var bobbing_amplitude = 12
+var bobbing_speed = 1
 var bobbing_time = 0
 
 var mouse_regular = preload("res://UI/Mouses/pointer_c.png")
@@ -74,6 +74,7 @@ func _physics_process(delta: float) -> void:
 	
 	#Bobbing
 	bobbing_time += delta * bobbing_speed
+	
 	position.y = initial_position.y + bobbing_amplitude * sin(bobbing_time)
 	
 	#Petting
@@ -112,18 +113,18 @@ func pet_bubble():
 
 	Stats.petting_progress += 1
 	print("Score: ", Stats.petting_progress)
-	scale.x += 0.01
-	scale.y += 0.01
+	scale.x += 0.02
+	scale.y += 0.02
 	
 	petting_paused = true
 
 	pause_timer.wait_time = randf_range(pause_wait_time - 0.2, pause_wait_time + 0.3)
 	pause_timer.start()
 	
-	Stats.stress_level += 1
+	Stats.stress_level += (1 * Stats.progress_multiplier)
 	print("Stress increased: ", Stats.stress_level)
 	#TODO: Are we gonna do something with the multiplier, or....
-	stress_timer.wait_time = stress_waittime * Stats.food_multiplier * Stats.progress_multiplier
+	stress_timer.wait_time = stress_waittime
 	stress_timer.start()
 	
 	if Stats.loneliness > 0:
@@ -136,33 +137,45 @@ func pet_bubble():
 	Stats.emit_signal("just_pet")
 	Stats.update_stats()
 	
-
+var max_progress = 50
+var max_stress = 16
+var max_loneliness = 16
 
 func manage_mood():
-	if Stats.petting_progress > 50:
+	if Stats.petting_progress >= max_progress:
+		Stats.petting_progress = max_progress
 		victory()
-	elif Stats.stress_level > 22:
+	elif Stats.stress_level >= max_stress:
 		death_by_stress()
-	elif Stats.loneliness > 17:
+	elif Stats.loneliness >= max_loneliness:
 		death_by_loneliness()
 
-	if Stats.stress_level > 16:
-		current_mood = "stressed"
+	if Stats.stress_level > (max_stress - 1) or Stats.loneliness > (max_loneliness - 2):
+		current_mood = "dying"
+	elif Stats.petting_progress > (max_progress - 2):
+		current_mood = "exctatic"
 	elif Stats.stress_level > 12:
+		current_mood = "stressed"
+	elif Stats.stress_level > 9:
 		current_mood = "agitated"
 	elif Stats.loneliness > 12:
 		current_mood = "lonely"
-	elif Stats.loneliness > 6:
+	elif Stats.loneliness > 7:
 		current_mood = "sad"
-	elif Stats.petting_progress > 27:
+	elif Stats.petting_progress > 30:
 		current_mood = "exctatic"
+		bobbing_amplitude = 20
+		bobbing_speed = 2.5
+		Stats.progress_multiplier = 1.2
 	elif Stats.petting_progress > 10:
 		current_mood = "happy"
+		bobbing_amplitude = 15
+		bobbing_speed = 2
 	else:
 		current_mood = "neutral"
 	print(current_mood)
 	
-	update_animation() #TODO: Move this function-call
+	update_animation()
 
 
 func _on_petting_pause_timer_timeout() -> void:
@@ -170,9 +183,9 @@ func _on_petting_pause_timer_timeout() -> void:
 
 func _on_stress_timer_timeout() -> void:
 	if Stats.stress_level > 0:
-		Stats.stress_level -= 1.5
+		Stats.stress_level -= 1.3
 		print("stress decreased: ", Stats.stress_level)
-	stress_timer.wait_time = stress_waittime * Stats.food_multiplier * Stats.progress_multiplier
+	stress_timer.wait_time = stress_waittime
 	stress_timer.start()
 	manage_mood()
 
@@ -212,6 +225,7 @@ func update_animation():
 
 func death_by_stress():
 	Stats.deaths_by_stress += 1
+	Stats.bubbles_popped += 1
 	Stats.game_over("stress")
 	#Play death animation, await finish
 	print("DIED BY STRESS")
@@ -221,6 +235,7 @@ func death_by_stress():
 func death_by_loneliness():
 	#Play death animation, await finish
 	Stats.deaths_by_loneliness += 1
+	Stats.bubbles_popped += 1
 	Stats.game_over("loneliness")
 	print("DIED BY LONELINESS")
 	pause_stuff()
@@ -235,6 +250,7 @@ func pause_stuff():
 	
 func victory():
 	Stats.victory_achieved = true
+	Stats.victories += 1
 	Stats.game_over("victory")
 	print("YOU WON")
 	pause_stuff()

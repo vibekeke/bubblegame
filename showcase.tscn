@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvr21ad8x1uhe"]
+
+[ext_resource type="FontFile" uid="uid://gib0aims4g01" path="res://UI/Montserrat-ExtraLight.ttf" id="1_usvlo"]
+[ext_resource type="PackedScene" uid="uid://mj4utq4hulva" path="res://BackgroundBubbles/bg_bubble.tscn" id="2_jsyxg"]
+[ext_resource type="PackedScene" uid="uid://ctutaxmxvov0b" path="res://Bubble/bubble.tscn" id="3_jy4hg"]
+
+[node name="Showcase" type="Node2D"]
+
+[node name="Title" type="Label" parent="."]
+offset_left = 344.0
+offset_top = 75.0
+offset_right = 932.0
+offset_bottom = 174.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_usvlo")
+theme_override_font_sizes/font_size = 80
+text = "pet the bubble"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BgBubble" parent="." instance=ExtResource("2_jsyxg")]
+position = Vector2(115, 1223)
+
+[node name="BgBubble2" parent="." instance=ExtResource("2_jsyxg")]
+position = Vector2(320, 877)
+
+[node name="BgBubble3" parent="." instance=ExtResource("2_jsyxg")]
+position = Vector2(147, 494)
+
+[node name="BgBubble4" parent="." instance=ExtResource("2_jsyxg")]
+position = Vector2(1091, 1174)
+
+[node name="BgBubble5" parent="." instance=ExtResource("2_jsyxg")]
+position = Vector2(1196, 758)
+
+[node name="Bubble" parent="." instance=ExtResource("3_jy4hg")]
+position = Vector2(646, 383)

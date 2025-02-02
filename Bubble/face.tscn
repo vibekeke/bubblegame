@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://hu447tf01o0t"]
+[gd_scene load_steps=32 format=3 uid="uid://hu447tf01o0t"]
 
 [ext_resource type="Texture2D" uid="uid://cikvqimna2dd6" path="res://Bubble/Face/EyesAgitated.png" id="1_c40ke"]
 [ext_resource type="Texture2D" uid="uid://46f70c1abyvf" path="res://Bubble/Face/EyesNormal.png" id="1_y6nm6"]
@@ -9,9 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://06bdoulsclho" path="res://Bubble/Face/EyesAgitatedWinkL.png" id="3_uf18d"]
 [ext_resource type="Texture2D" uid="uid://r2bsm1tnsbqy" path="res://Bubble/Face/MouthOpen.png" id="4_goidp"]
 [ext_resource type="Texture2D" uid="uid://cb1hb522wnb11" path="res://Bubble/Face/EyesExctatic2.png" id="4_m5iv1"]
+[ext_resource type="Texture2D" uid="uid://cid1l10qj6dhh" path="res://Bubble/Face/EyesDying-1.png" id="4_rc2r6"]
 [ext_resource type="Texture2D" uid="uid://ca54ggg241ngy" path="res://Bubble/Face/EyesStressedClosed.png" id="4_sccti"]
+[ext_resource type="Texture2D" uid="uid://b6crp40pljk1p" path="res://Bubble/Face/EyesDying-2.png" id="5_3ptql"]
 [ext_resource type="Texture2D" uid="uid://43bdb6kkepyq" path="res://Bubble/Face/EyesStressedWinkR.png" id="5_xuhqo"]
 [ext_resource type="Texture2D" uid="uid://dtdpqj5jv4v5n" path="res://Bubble/Face/EyesHappy.png" id="5_ygxrv"]
+[ext_resource type="Texture2D" uid="uid://bkw45suuopw3x" path="res://Bubble/Face/EyesDying-3.png" id="6_fbbqg"]
 [ext_resource type="Texture2D" uid="uid://bvd7msxehc4e8" path="res://Bubble/Face/EyesHappyClosed.png" id="6_g4osm"]
 [ext_resource type="Texture2D" uid="uid://d3c1ycm2ehwjf" path="res://Bubble/Face/EyesStressedWinkL.png" id="6_mhvf1"]
 [ext_resource type="Texture2D" uid="uid://b61jrkd76fns7" path="res://Bubble/Face/EyesLonely.png" id="7_ufl0t"]
@@ -24,6 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://b4fvmq4p7a2h1" path="res://Bubble/Face/MouthExctatic.png" id="19_1mu6n"]
 [ext_resource type="Texture2D" uid="uid://ctx4i731qpus1" path="res://Bubble/Face/MouthAgitated2.png" id="20_4thbv"]
 [ext_resource type="Texture2D" uid="uid://bqfrqts37xvgx" path="res://Bubble/Face/MouthHappyOpen.png" id="20_jg8ok"]
+[ext_resource type="Texture2D" uid="uid://dod4drf70ji1m" path="res://Bubble/Face/MouthDying-1.png" id="24_3t0or"]
+[ext_resource type="Texture2D" uid="uid://bwtspmlcici3w" path="res://Bubble/Face/MouthDying-2.png" id="25_7vfyo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2v005"]
 animations = [{
@@ -36,9 +41,6 @@ animations = [{
 }, {
 "duration": 8.0,
 "texture": ExtResource("1_c40ke")
-}, {
-"duration": 2.0,
-"texture": ExtResource("3_uf18d")
 }, {
 "duration": 5.0,
 "texture": ExtResource("1_c40ke")
@@ -66,6 +68,34 @@ animations = [{
 "loop": true,
 "name": &"agitated_pet",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_rc2r6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3ptql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fbbqg")
+}],
+"loop": true,
+"name": &"dying",
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_rc2r6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3ptql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fbbqg")
+}],
+"loop": true,
+"name": &"dying_pet",
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 6.0,
@@ -265,6 +295,17 @@ animations = [{
 "speed": 2.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_3t0or")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_7vfyo")
+}],
+"loop": true,
+"name": &"dying",
+"speed": 15.0
+}, {
+"frames": [{
 "duration": 2.0,
 "texture": ExtResource("19_1mu6n")
 }, {
@@ -364,10 +405,9 @@ animations = [{
 
 [node name="Eyes" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2v005")
-animation = &"happy"
-frame_progress = 0.448068
+animation = &"agitated"
 
 [node name="Mouth" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lu44c")
-animation = &"agitated"
-frame_progress = 0.45731
+animation = &"dying"
+frame_progress = 0.676251
